@@ -1,4 +1,3 @@
-# Instrumental Songs
 The Battle
 The Black Pearl
 Stereo Madness
