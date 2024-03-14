@@ -29,5 +29,8 @@ def looping(loop = loop, queue = queue):
     return queue
 
 add_playlist(second_list)
-looping(True)
-print(queue)
+# looping(True)
+# print(queue)
+# looping(False)
+# print(queue)
+print(queue[0])
