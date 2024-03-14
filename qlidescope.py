@@ -5,7 +5,7 @@ removed_song = ['tune']
 
 #Restarts the queue
 #   Remove every song in the queue, except the NOW_PLAYING
-def clear_queue(queue):
+def clear_queue(queue = queue):
     now_playing = queue[0]
     queue.clear()
     queue.append(now_playing)
@@ -14,14 +14,15 @@ def clear_queue(queue):
 
 # Adds playlist to the END of the queue and ignores any repeat songs
 def add_playlist(playlist, queue = queue):
-    queue.extend(playlist)
+    adding_songs = [song for song in playlist if song not in queue]
+    queue.extend(adding_songs)
     return queue
 
 
 add_playlist(first_list)
 print(queue)
 
-clear_queue(queue)
+clear_queue()
 print(queue)
 
 add_playlist(second_list)
