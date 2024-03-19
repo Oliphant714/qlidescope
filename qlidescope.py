@@ -2,7 +2,7 @@ queue = []
 first_list = ['song', 'tune', 'recicitation', 'poem']
 second_list = ['Happy', 'Sneezy', 'Bashful', 'Doc', 'Sleepy', 'Dopey', 'Grumpy']
 removed_song = ['tune']
-loop = False
+loop = 'off'
 #Restarts the queue
 #   Remove every song in the queue, except the NOW_PLAYING
 def clear_queue(queue = queue):
@@ -21,16 +21,16 @@ def add_playlist(playlist, queue = queue):
 
 def looping(loop = loop, queue = queue):
     stored_songs = queue
-    while loop == True:
+    if loop == 'on':
         now_playing = queue[0]
         queue = now_playing
         return queue
-    queue = stored_songs
-    return queue
+    else:
+        queue = stored_songs
+        return queue
 
 add_playlist(second_list)
-# looping(True)
-# print(queue)
-# looping(False)
-# print(queue)
-print(queue[0])
+looping('on')
+print(queue)
+looping('off')
+print(queue)
