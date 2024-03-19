@@ -22,8 +22,7 @@ def add_playlist(playlist, queue = queue):
 def looping(loop = loop, queue = queue):
     stored_songs = queue
     if loop == 'on':
-        now_playing = queue[0]
-        queue = now_playing
+        queue = queue[0]
         return queue
     else:
         queue = stored_songs
