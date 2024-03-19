@@ -1,3 +1,5 @@
+# Creation of this code was accelerated using ChatGPT
+
 queue = []
 first_list = ['song', 'tune', 'recicitation', 'poem']
 second_list = ['Happy', 'Sneezy', 'Bashful', 'Doc', 'Sleepy', 'Dopey', 'Grumpy']
