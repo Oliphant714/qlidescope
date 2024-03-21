@@ -1,7 +1,6 @@
 queue = []
 first_list = ['song', 'tune', 'recicitation', 'poem']
 second_list = ['Happy', 'Sneezy', 'Bashful', 'Doc', 'Sleepy', 'Dopey', 'Grumpy']
-removed_song = ['tune']
 loop = 'off'
 
 def clear_queue(queue = queue):
@@ -10,12 +9,19 @@ def clear_queue(queue = queue):
     queue.append(now_playing)
     return queue
 
-# Adds playlist to the END of the queue
 def add_playlist(playlist, queue = queue):
+    from random import randint
+    def shuffle_strings(string_list):
+        shuffled_list = list(string_list)  # Make a copy of the original list
+        n = len(shuffled_list)
+        for i in range(n-1, 0, -1):
+            j = randint(0, i+1)
+            shuffled_list[i], shuffled_list[j] = shuffled_list[j], shuffled_list[i]
+        return shuffled_list
     new_songs = [song for song in playlist if song not in queue]
-    queue.extend(new_songs)
+    adding_songs = shuffle_strings(new_songs)
+    queue.extend(adding_songs)
     return queue
-    # Ignores repeat songs
 
 def looping(loop, queue = queue):
     stored_songs = list(queue)
@@ -31,6 +37,7 @@ def looping(loop, queue = queue):
     return stored_songs
 
 add_playlist(second_list)
+
 looping('on')
 print(queue)
 looping('off')
