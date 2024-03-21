@@ -25,15 +25,15 @@ def add_playlist(playlist, queue = queue):
     - list: The modified queue with added songs from the playlist in shuffled order.
     """
     from random import randint
-    def shuffle_strings(string_list):
-        shuffled_list = list(string_list)  # Make a copy of the original list
+    def shuffled_songs(playlist = playlist):
+        shuffled_list = list(playlist)
         n = len(shuffled_list)
         for i in range(n-1, 0, -1):
             j = randint(0, i+1)
             shuffled_list[i], shuffled_list[j] = shuffled_list[j], shuffled_list[i]
         return shuffled_list
     new_songs = [song for song in playlist if song not in queue]
-    adding_songs = shuffle_strings(new_songs)
+    adding_songs = shuffled_songs(new_songs)
     queue.extend(adding_songs)
     return queue
 

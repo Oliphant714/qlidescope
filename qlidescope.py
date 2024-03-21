@@ -1,7 +1,18 @@
 queue = []
-first_list = ['song', 'tune', 'recicitation', 'poem']
-second_list = ['Happy', 'Sneezy', 'Bashful', 'Doc', 'Sleepy', 'Dopey', 'Grumpy']
 loop = 'off'
+def read_md_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    lines = content.split('\n')
+    return lines
+inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\instrumental_music_list.md"
+instrumental_content = read_md_file(inst_path)
+oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
+oc_content = read_md_file(oc_path)
+
+def display(queue = queue):
+    for song in queue:
+        print(f"Now playing: {song}")
 
 def clear_queue(queue = queue):
     now_playing = queue[0]
@@ -11,15 +22,15 @@ def clear_queue(queue = queue):
 
 def add_playlist(playlist, queue = queue):
     from random import randint
-    def shuffle_strings(string_list):
-        shuffled_list = list(string_list)  # Make a copy of the original list
+    def shuffled_songs(playlist = playlist):
+        shuffled_list = list(playlist)  # Make a copy of the original list
         n = len(shuffled_list)
         for i in range(n-1, 0, -1):
             j = randint(0, i+1)
             shuffled_list[i], shuffled_list[j] = shuffled_list[j], shuffled_list[i]
         return shuffled_list
     new_songs = [song for song in playlist if song not in queue]
-    adding_songs = shuffle_strings(new_songs)
+    adding_songs = shuffled_songs(new_songs)
     queue.extend(adding_songs)
     return queue
 
@@ -36,9 +47,17 @@ def looping(loop, queue = queue):
         print (f"Now playing {song}")
     return stored_songs
 
-add_playlist(second_list)
+add_playlist(instrumental_content)
+display()
+add_playlist(oc_content)
+display()
+clear_queue()
+display()
 
-looping('on')
-print(queue)
-looping('off')
-print(queue)
+# looping('on')
+# display()
+# add_playlist(first_list)
+# looping('off')
+# display()
+# looping('on')
+# display()
