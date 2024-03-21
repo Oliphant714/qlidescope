@@ -37,11 +37,12 @@ def looping(loop, queue = queue):
             print("Now playing:", now_playing)  # Replace with your play function
         else:
             print("Queue is empty. No song to play.")
+            return stored_songs
     for song in queue:
         print (f"Now playing {song}")
     return stored_songs
 
-queue.extend(first_list)
+#queue.extend(first_list)
 print(queue)
 
 # looping('off')
