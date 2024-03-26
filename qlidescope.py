@@ -1,5 +1,6 @@
 queue = []
 loop = 'off'
+song_count = 0
 def read_md_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
@@ -11,10 +12,16 @@ oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlides
 oc_content = read_md_file(oc_path)
 
 def display(queue = queue):
+    global song_count
+    song_count = 0
     for song in queue:
+        song_count += 1
         print(f"Now playing: {song}")
+        
 
 def clear_queue(queue = queue):
+    global song_count
+    song_count = 0
     now_playing = queue[0]
     queue.clear()
     queue.append(now_playing)
@@ -23,7 +30,7 @@ def clear_queue(queue = queue):
 def add_playlist(playlist, queue = queue):
     from random import randint
     def shuffled_songs(playlist = playlist):
-        shuffled_list = list(playlist)  # Make a copy of the original list
+        shuffled_list = list(playlist)  
         n = len(shuffled_list)
         for i in range(n-1, 0, -1):
             j = randint(0, i+1)
@@ -47,17 +54,3 @@ def looping(loop, queue = queue):
         print (f"Now playing {song}")
     return stored_songs
 
-add_playlist(instrumental_content)
-display()
-add_playlist(oc_content)
-display()
-clear_queue()
-display()
-
-# looping('on')
-# display()
-# add_playlist(first_list)
-# looping('off')
-# display()
-# looping('on')
-# display()
