@@ -33,7 +33,7 @@ def display(queue):
     for song in queue:
         print(f"Now playing: {song}")
 
-def start(playlist, number_of_iterations):
+#def start(playlist, number_of_iterations):
     
 
 
