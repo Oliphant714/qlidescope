@@ -48,10 +48,3 @@ inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlid
 instrumental_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)
-
-song_queue = add_playlist(instrumental_content, [])
-display(song_queue)
-print(f'Current song count: {song_count}')
-start_over = 'on'
-display(song_queue)
-print(f'Current song count: {song_count}')
