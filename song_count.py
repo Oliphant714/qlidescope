@@ -45,6 +45,6 @@ def read_md_file(file_path):
     return lines
 
 inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\instrumental_music_list.md"
-instrumental_content = read_md_file(inst_path)
+inst_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)

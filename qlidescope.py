@@ -3,7 +3,6 @@ from itertools import zip_longest
 
 def display(queue):
     for song in queue:
-        song_count += 1
         print(f"Now playing: {song}")
         
 
