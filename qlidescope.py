@@ -32,12 +32,11 @@ def looping(loop, queue):
     while loop == 'on':
         if queue:
             now_playing = queue[0]
-            print("Now playing:", now_playing)
+            display(now_playing)
         else:
             print("Queue is empty. No song to play.")
             return stored_songs
-    for song in queue:
-        print (f"Now playing {song}")
+    display(queue)
     return stored_songs
 
 def read_md_file(file_path):

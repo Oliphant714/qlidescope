@@ -1,12 +1,6 @@
-def clear_queue(queue):
-    now_playing = queue[0]
-    queue.clear()
-    queue.append(now_playing)
-    return queue
-
 def add_playlist(queue, playlist):
     from random import randint
-    def shuffled_songs(playlist = playlist):
+    def shuffled_songs(playlist):
         shuffled_list = list(playlist)  
         n = len(shuffled_list)
         for i in range(n-1, 0, -1):
@@ -18,25 +12,27 @@ def add_playlist(queue, playlist):
     queue.extend(adding_songs)
     return queue
 
-def count_songs(queue, start_over = False):
-    song_count = 0
-    num_songs_to_play = len(queue)
+#Function actually is an iteration count, not a song count
+def iterations(queue, iterations, start_over = False):
+    iter_count = 0
     counted_songs = list(queue)
-    while num_songs_to_play > song_count:
-        song_count =+ 1
-        display()
-        clear_queue(queue)
-        if start_over == True:
-            add_playlist(counted_songs)
+    while iterations > iter_count:
+        iter_count += 1
+        display(queue)
+        if start_over == True and iter_count == iterations:
+            iter_count = 0
+            queue.clear()
+            queue = add_playlist(queue, counted_songs)
+            
 
 def display(queue):
+    song_count = 0
+    queue_len = len(queue)
     for song in queue:
         print(f"Now playing: {song}")
-
-#def start(playlist, number_of_iterations):
+        if song_count < queue_len:
+            song_count =+ 1
     
-
-
 
 def read_md_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -48,3 +44,10 @@ inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlid
 inst_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)
+
+
+
+
+queue = []
+add_playlist(queue, oc_content)
+iterations(queue, 3, True)
