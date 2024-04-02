@@ -1,13 +1,10 @@
-
 def clear_queue(queue):
-    global song_count
-    song_count = 0
     now_playing = queue[0]
     queue.clear()
     queue.append(now_playing)
     return queue
 
-def add_playlist(playlist, queue):
+def add_playlist(queue, playlist):
     from random import randint
     def shuffled_songs(playlist = playlist):
         shuffled_list = list(playlist)  
@@ -28,17 +25,16 @@ def count_songs(queue, start_over = False):
     while num_songs_to_play > song_count:
         song_count =+ 1
         display()
-    clear_queue(queue)
-    if start_over == True:
-        add_playlist(counted_songs)
+        clear_queue(queue)
+        if start_over == True:
+            add_playlist(counted_songs)
 
 def display(queue):
     for song in queue:
         print(f"Now playing: {song}")
 
-def start(playlist, number_of_iterations):
+#def start(playlist, number_of_iterations):
     
-
 
 
 
@@ -47,14 +43,8 @@ def read_md_file(file_path):
         content = file.read()
     lines = content.split('\n')
     return lines
+
 inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\instrumental_music_list.md"
-instrumental_content = read_md_file(inst_path)
+inst_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)
-
-song_queue = add_playlist(instrumental_content, [])
-display(song_queue)
-print(f'Current song count: {song_count}')
-start_over = 'on'
-display(song_queue)
-print(f'Current song count: {song_count}')
