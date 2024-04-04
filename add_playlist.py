@@ -11,7 +11,7 @@ def add_playlist(song_queue, *playlists):
   - *playlists (lists): Variable number of playlists containing songs to be added to the queue.
 
   Complexity:
-  - Time: O(n * m * l), where n is the number of songs in the longest playlist,
+  - Time: O(n * m * l), where n is the number of songs in the longest playlist, chasnged
     m is the number of playlists, and l is the average length of each playlist.
     The function iterates through each song in each playlist to check if it's in the queue, taking linear time.
     Additionally, shuffling the merged list takes O(n) time.
