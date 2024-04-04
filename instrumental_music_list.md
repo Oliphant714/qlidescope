@@ -61,13 +61,13 @@ A Promise
 What Heroes Do
 Wakanda
 Portals
-One SHot
+One Shot
 Cold Island
 Duel of the Fates
 The Imperial March
 Battle of the Heroes
-Tron OVerture
-The SOn of Flynn
+Tron Overture
+The Son of Flynn
 Recognizer
 Armory
 Arena

@@ -42,7 +42,7 @@ def iterations(queue, iterations, start_over = False):
     while iterations > iter_count:
         iter_count += 1
         display(queue)
+        queue.clear()
+        queue = add_playlist(queue, counted_songs)
         if start_over == True and iter_count == iterations:
             iter_count = 0
-            queue.clear()
-            queue = add_playlist(queue, counted_songs)

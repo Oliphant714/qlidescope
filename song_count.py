@@ -19,19 +19,15 @@ def iterations(queue, iterations, start_over = False):
     while iterations > iter_count:
         iter_count += 1
         display(queue)
+        queue.clear()
+        queue = add_playlist(queue, counted_songs)
         if start_over == True and iter_count == iterations:
             iter_count = 0
-            queue.clear()
-            queue = add_playlist(queue, counted_songs)
             
 
 def display(queue):
-    song_count = 0
-    queue_len = len(queue)
     for song in queue:
         print(f"Now playing: {song}")
-        if song_count < queue_len:
-            song_count =+ 1
     
 
 def read_md_file(file_path):
@@ -48,7 +44,9 @@ inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlid
 inst_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)
+dis_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\disney.md"
+dis_content = read_md_file(dis_path)
 
 queue = []
-add_playlist(queue, inst_content)
+add_playlist(queue, dis_content)
 iterations(queue, 3)
