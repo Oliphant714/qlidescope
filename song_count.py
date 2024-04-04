@@ -40,13 +40,14 @@ def read_md_file(file_path):
     lines = content.split('\n')
     return lines
 
+
+
+
+
 inst_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\instrumental_music_list.md"
 inst_content = read_md_file(inst_path)
 oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlidescope\\owl_city_songs.md"
 oc_content = read_md_file(oc_path)
-
-
-
 
 queue = []
 add_playlist(queue, oc_content)
