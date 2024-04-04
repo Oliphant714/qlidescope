@@ -50,5 +50,5 @@ oc_path = r"C:\\Users\\Isaac\\OneDrive\\Documents\\Semester 3\\functions\\qlides
 oc_content = read_md_file(oc_path)
 
 queue = []
-add_playlist(queue, oc_content)
-iterations(queue, 3, True)
+add_playlist(queue, inst_content)
+iterations(queue, 3)

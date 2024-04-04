@@ -1,4 +1,3 @@
-# Karaoke Playlist
 Tiny Dancer
 I Will Always Love You
 Survivor
